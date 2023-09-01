@@ -23,6 +23,7 @@ int PriNumf(char* s){
 }
 
 float media(int N, float *Xi){
+    system("pause");
     float somatorio=0,U=0;
     for(int i=0;i<N;i++){
         somatorio+=(Xi[i]);
@@ -32,6 +33,7 @@ float media(int N, float *Xi){
 }
 
 float media_agr(int N, float *Xi,float *Fi){
+    system("pause");
     float somatorio=0,U=0,F=0;
     for(int i=0;i<N;i++){
         somatorio+=(Xi[i]*Fi[i]);
@@ -44,6 +46,7 @@ float media_agr(int N, float *Xi,float *Fi){
 }
 
 float mediana(int N, float *En){
+    system("pause");
     float Md;
     int i,i2;
     if(N%2==0){
@@ -57,7 +60,8 @@ float mediana(int N, float *En){
     return Md;
 }
 
-void mediana_agr(int N,float *h,float *Fi,float *Li,int op){
+float mediana_agr(int N,float *h,float *Fi,float *Li,int op){
+    system("pause");
     int Frec_tot,Fa=0,position_li=0;
     float Md,*tot_elem;
     int i1,i2;
@@ -89,7 +93,7 @@ void mediana_agr(int N,float *h,float *Fi,float *Li,int op){
             i1=((Frec_tot+1)/2);
             Md=h[i1-1];
         }
-        //return Md;
+        return Md;
     }else{
         for(int i=0;i<N;i++){
             if(Fa<(Frec_tot/2)){
@@ -102,7 +106,7 @@ void mediana_agr(int N,float *h,float *Fi,float *Li,int op){
         }
         Md=Li[position_li]+(((Frec_tot/2)+Fa)/Fi[position_li])*h[position_li];
     } 
-    //return Frec_tot;
+    return Md;
 }
 
 #endif
