@@ -1,6 +1,6 @@
 /***************************************************************************************
 * PROG:             PE Implementaçao                                                   *
-* AUTOR:            Jesse Jilva                                                        *
+* AUTOR:            Jesse Silva                                                        *
 * DATA:             01/09/2023                                                         *
 * ATUALIZADO EM:    00/00/2023  00:00                                                  *
 ***************************************************************************************/
@@ -18,9 +18,8 @@ void media_nao_agrupada(){
     putchar('\n');
 
     for(int i=0;i<n;i++){
-        elementos[i]=PriNumf("Escreva o elemento: ");
-        
-    }
+        elementos[i]=PriNumf("Escreva o elemento: ");  
+    }system("cls");
     printf("\nMedia = %.2f",media(n,elementos));
 }
 
@@ -52,9 +51,7 @@ void media_agrupada(){
         elementos[i]=PriNumf("Escreva o elemento: ");
         frequencia[i]=PriNumf("Escreva a frequencia: ");
         }  
-    }
-
-
+    }system("cls");
     printf("\nMedia = %.2f",media_agr(n,elementos,frequencia));
 }
 
