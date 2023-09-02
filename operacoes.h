@@ -48,11 +48,10 @@ float media_agr(int N, float *Xi,float *Fi){
 float mediana(int N, float *En){
     system("pause");
     float Md;
-    int i,i2;
+    int i;
     if(N%2==0){
         i=N/2;
-        i2=N/2+1;
-        Md=(En[i-1]+En[i2-1])/2;
+        Md=(En[i-1]+En[i])/2;
     }else{
         i=((N+1)/2);
         Md=En[i-1];
@@ -62,8 +61,9 @@ float mediana(int N, float *En){
 /**************************************** O PROBLEMA É AQUI* *****************************************/
 float mediana_agr(int Num_ele,float *H,float *Fi,float *Li,int op){
     system("pause");
+    float Md=0;
     if(op==1){
-        float Fa=0,li=0,fmd=0,h=0,Md=0,n=0;
+        float Fa=0,li=0,fmd=0,h=0,n=0;
         for (int i = 0; i < Num_ele; i++)
         {
             n+=Fi[i];
@@ -84,15 +84,31 @@ float mediana_agr(int Num_ele,float *H,float *Fi,float *Li,int op){
             }
         }
         Md=li+((n-Fa)/fmd*h);
-        printf("n = %.2f\n",n);
-        printf("fa = %.2f\n",Fa);
-        printf("li = %.2f\n",li);
-        printf("fmd = %.2f\n",fmd);
-        printf("h = %.2f\n",h);
-        printf("Md = %.2f\n",Md);
-        //return Md;
+    }else{
+        float n=0,*elementos;
+        for (int i = 0; i < Num_ele; i++){
+            n+=Fi[i];
+        }
+        elementos = (float *)malloc(n*sizeof(float));
+        for (int i = 0;i< n; ){
+            for(int j = 0;j<Num_ele;j++){
+                for(int k = 0;k<Fi[j];k++){
+                    elementos[i]=H[j];
+                    i++;
+                }
+            }
+        }
+        if((int)n%2!=0){
+            int i1;
+            i1=((int)n+1)/2;
+            Md=elementos[i1];
+        }else{
+            int i;
+            i=(int)n/2;
+            Md=(elementos[i-1]+elementos[i])/2; 
+        } 
     }
-return 0;
+    printf("Mediana = %.2f",Md);
+    return 0;
 }
-
 #endif

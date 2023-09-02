@@ -33,6 +33,7 @@ void media_agrupada(){
         printf("\tTem Amplitude?\n\n");
         printf("1- Sim\n2- Nao\n");
         op=PriNum("Escolha uma das opcoes acima: ");
+        putchar('\n');
     }while(op!=1&&op!=2);
     if(op==1){
         for(int i=0;i<n;i++){
@@ -79,6 +80,7 @@ void mediana_agrupada(){
         printf("\tTem Amplitude?\n\n");
         printf("1- Sim\n2- Nao\n");
         op=PriNum("Escolha uma das opcoes acima: ");
+        putchar('\n');
     }while(op!=1&&op!=2);
     if(op==1){
         for(int i=0;i<n;i++){
@@ -89,19 +91,18 @@ void mediana_agrupada(){
         }  
     }else{
         for(int i=0;i<n;i++){
-            
         elementos[i]=PriNumf("Escreva o elemento: ");
         frequencia[i]=PriNumf("Escreva a frequencia: ");
         }
     
     }system("cls");
-    //printf("\nMedia = %.2f",mediana_agr(n,elementos,frequencia,LI,op));
     mediana_agr(n,elementos,frequencia,LI,op);
 }
 int main(){
 
     int op=0;
     do{
+
         system("cls");
         printf("\tImplementacao da materia de Probabilidade Estatistica\n\n");
         printf("1- Media\n2- Mediana\n3- Moda\n");
