@@ -59,54 +59,40 @@ float mediana(int N, float *En){
     }
     return Md;
 }
-
-float mediana_agr(int N,float *h,float *Fi,float *Li,int op){
+/**************************************** O PROBLEMA É AQUI* *****************************************/
+float mediana_agr(int Num_ele,float *H,float *Fi,float *Li,int op){
     system("pause");
-    int Frec_tot,Fa=0,position_li=0;
-    float Md,*tot_elem;
-    int i1,i2;
-    for(int i=0;i<N;i++){
-        Frec_tot+=(Fi[i]);
-    }
-    tot_elem = (float *)malloc(Frec_tot*sizeof(float));
-
-    for(int i=0,k=0;i<Frec_tot;k++)
-    {
-        for(int j=0;j<Fi[i];j++)
+    if(op==1){
+        float Fa=0,li=0,fmd=0,h=0,Md=0,n=0;
+        for (int i = 0; i < Num_ele; i++)
         {
-            tot_elem[i]=h[k];
-            i++;
-            
+            n+=Fi[i];
         }
-    }
-    
-    for(int i=0;i<Frec_tot;i++){
-    printf("%.0f\n",tot_elem[i]);
-    }
-
-    if(op==2){
-        if((int)Frec_tot%2==0){
-            i1=Frec_tot/2;
-            i2=Frec_tot/2+1;
-            Md=(h[i1-1]+h[i2-1])/2;
-        }else{
-            i1=((Frec_tot+1)/2);
-            Md=h[i1-1];
-        }
-        return Md;
-    }else{
-        for(int i=0;i<N;i++){
-            if(Fa<(Frec_tot/2)){
-                Fa+=(Fi[i]);
-            }else if(Fa>(Frec_tot/2)){
-                Fa-=(Fi[i-1]);
-                position_li=i;
+        n=(int)n/2;
+        for (int i = 0; i < Num_ele; i++)
+        {
+            if(Fa<n){
+                Fa+=Fi[i];
+                continue;
+            }
+            if(Fa>n){
+                Fa-=Fi[i-1];
+                li=Li[i-1];
+                fmd=Fi[i-1];
+                h=H[i];
                 break;
             }
         }
-        Md=Li[position_li]+(((Frec_tot/2)+Fa)/Fi[position_li])*h[position_li];
-    } 
-    return Md;
+        Md=li+((n-Fa)/fmd*h);
+        printf("n = %.2f\n",n);
+        printf("fa = %.2f\n",Fa);
+        printf("li = %.2f\n",li);
+        printf("fmd = %.2f\n",fmd);
+        printf("h = %.2f\n",h);
+        printf("Md = %.2f\n",Md);
+        //return Md;
+    }
+return 0;
 }
 
 #endif

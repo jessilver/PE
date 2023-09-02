@@ -64,7 +64,7 @@ void mediana_nao_agrupada(){
     }system("cls");
     printf("\nMediana = %.2f",mediana(n,elementos));
     
-}/**O PROBLEMA É AQUI**/
+}
 void mediana_agrupada(){
     system("cls");
     float *elementos,*frequencia,*LI,LS;
@@ -82,19 +82,21 @@ void mediana_agrupada(){
     }while(op!=1&&op!=2);
     if(op==1){
         for(int i=0;i<n;i++){
-        LI[i]=PriNumf("De: "); // Limite imferio
+        LI[i]=PriNumf("De: "); // Limite inferior
         LS=PriNumf("Ate: ");// Limite superior
         elementos[i]=LS-LI[i]; // Virou amplitude
         frequencia[i]=PriNumf("Escreva a frequencia: ");
         }  
     }else{
         for(int i=0;i<n;i++){
+            
         elementos[i]=PriNumf("Escreva o elemento: ");
         frequencia[i]=PriNumf("Escreva a frequencia: ");
         }
     
     }system("cls");
-    printf("\nMedia = %.2f",mediana_agr(n,elementos,frequencia,LI,op));
+    //printf("\nMedia = %.2f",mediana_agr(n,elementos,frequencia,LI,op));
+    mediana_agr(n,elementos,frequencia,LI,op);
 }
 int main(){
 
